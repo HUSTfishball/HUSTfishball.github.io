@@ -2,7 +2,7 @@
 <html lang="shadiao">
 <head>
 	<meta charset="UTF-8">
-	<title>媳妇，生日快乐</title>
+	<title>阿姨，生日快乐</title>
 	<style>
 		canvas {
 			position: absolute;
@@ -17,7 +17,7 @@
 			h = c.height = window.innerHeight,
 			ctx = c.getContext( '2d' ),
 			opts = {
-				phrases: [ "媳妇", "我最勇敢的事 \n就是跟你告白了", "你很好，\n真的", "我也真的很佩服自己 \n每次把你惹生气", "还有哈", "我是因为爱你 \n才卑微", "还因为", "知道遇到我这傻子 \n你蛮辛苦的","生日快乐！！！"],
+				phrases: [ "阿姨", "你迟到了很多年 \n可我依然为你的到来而高兴", "看了看 \n能给你的东西实在不多", "想把这辈子最单纯的喜欢 \n数不尽的温柔都给你", "生日快乐！"],
 				balloons: 50,
 				baseVelY: -1,
 				addedVelY: -1,
@@ -36,6 +36,7 @@
 			cycle = 0,
 			balloons = [];
 			ctx.font = opts.font;
+			ctx.color = "#D1EEEE"
 			function Balloon(){
 				this.reset();
 			}
@@ -62,7 +63,7 @@
 				this.y += this.vy;
 				var size = this.size + this.sizeAdder * Math.sin( this.tick );
 				ctx.lineWidth = size / 40;
-				ctx.strokeStyle = '#eee';
+				ctx.strokeStyle = '#000';
 				ctx.beginPath();
 				ctx.moveTo( this.x, this.y - 2 );
 				ctx.lineTo( this.x, this.y + size );
@@ -81,7 +82,7 @@
 				ctx.translate( -this.x, -this.y );
 				ctx.translate( this.x, this.y + size + 15 );
 				ctx.scale( size / this.size, size / this.size );
-				ctx.fillStyle = '#eee';
+				ctx.fillStyle = '#000';
 				for( var i = 0; i < this.phrase.length; ++i )
 					ctx.fillText( this.phrase[ i ], this.lengths[ i ], i * 15 );
 				ctx.scale( this.size / size, this.size / size );
@@ -92,7 +93,7 @@
 
 			function anim(){
 				window.requestAnimationFrame( anim );
-				ctx.fillStyle = "#231F20";
+				ctx.fillStyle = "#EEE9BF";
 				ctx.fillRect( 0, 0, w, h );
 				
 				if( balloons.length < opts.balloons && Math.random() < .01 )
